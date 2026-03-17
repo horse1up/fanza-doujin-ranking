@@ -21,19 +21,29 @@
       letter-spacing: 1px;
     }
     .ranking-item {
-      display: flex;
-      align-items: flex-start;
       padding: 8px;
       border-bottom: 1px solid #eee;
-      position: relative;
     }
     .ranking-item:last-child {
       border-bottom: none;
     }
+    .item-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+    .item-link:hover .title {
+      color: #e83e8c;
+    }
+    .thumb-wrap {
+      position: relative;
+    }
     .rank-badge {
-      flex-shrink: 0;
-      width: 24px;
-      height: 24px;
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      width: 26px;
+      height: 26px;
       border-radius: 50%;
       color: #fff;
       font-size: 13px;
@@ -41,33 +51,22 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-right: 6px;
-      margin-top: 2px;
-    }
-    .item-link {
-      display: flex;
-      align-items: flex-start;
-      text-decoration: none;
-      color: inherit;
-      flex: 1;
-      min-width: 0;
-    }
-    .item-link:hover .title {
-      color: #e83e8c;
+      z-index: 1;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
     }
     .thumb {
-      width: 80px;
+      width: 100%;
       height: auto;
-      flex-shrink: 0;
       border-radius: 4px;
+      display: block;
     }
     .title {
       font-size: 12px;
       line-height: 1.4;
       color: #333;
-      margin-left: 8px;
+      margin-top: 4px;
       display: -webkit-box;
-      -webkit-line-clamp: 3;
+      -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
       word-break: break-all;
@@ -85,40 +84,50 @@
   <div class="header">FANZA 同人ランキング</div>
 
     <div class="ranking-item">
-      <div class="rank-badge" style="background:#DAA520;">1</div>
       <a href="https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_738312%2F&af_id=uphorse-992&ch=api" target="_blank" rel="noopener" class="item-link">
-        <img src="https://doujin-assets.dmm.co.jp/digital/cg/d_738312/d_738312pl.jpg" alt="子産み島2＆3〜今、お腹あいてるよ〜" class="thumb" loading="lazy">
+        <div class="thumb-wrap">
+          <div class="rank-badge" style="background:#DAA520;">1</div>
+          <img src="https://doujin-assets.dmm.co.jp/digital/cg/d_738312/d_738312pl.jpg" alt="子産み島2＆3〜今、お腹あいてるよ〜" class="thumb" loading="lazy">
+        </div>
         <span class="title">子産み島2＆3〜今、お腹あいてるよ〜</span>
       </a>
     </div>
     <div class="ranking-item">
-      <div class="rank-badge" style="background:#A0A0A0;">2</div>
       <a href="https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_740374%2F&af_id=uphorse-992&ch=api" target="_blank" rel="noopener" class="item-link">
-        <img src="https://doujin-assets.dmm.co.jp/digital/comic/d_740374/d_740374pl.jpg" alt="青水庵＆白金庵コンプリートBOX！！ 2008〜2026" class="thumb" loading="lazy">
+        <div class="thumb-wrap">
+          <div class="rank-badge" style="background:#A0A0A0;">2</div>
+          <img src="https://doujin-assets.dmm.co.jp/digital/comic/d_740374/d_740374pl.jpg" alt="青水庵＆白金庵コンプリートBOX！！ 2008〜2026" class="thumb" loading="lazy">
+        </div>
         <span class="title">青水庵＆白金庵コンプリートBOX！！ 2008〜2026</span>
       </a>
     </div>
     <div class="ranking-item">
-      <div class="rank-badge" style="background:#CD7F32;">3</div>
       <a href="https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_738130%2F&af_id=uphorse-992&ch=api" target="_blank" rel="noopener" class="item-link">
-        <img src="https://doujin-assets.dmm.co.jp/digital/comic/d_738130/d_738130pl.jpg" alt="陰キャの俺、なぜか一軍ギャル3人組の罰ゲーム係に任命される" class="thumb" loading="lazy">
+        <div class="thumb-wrap">
+          <div class="rank-badge" style="background:#CD7F32;">3</div>
+          <img src="https://doujin-assets.dmm.co.jp/digital/comic/d_738130/d_738130pl.jpg" alt="陰キャの俺、なぜか一軍ギャル3人組の罰ゲーム係に任命される" class="thumb" loading="lazy">
+        </div>
         <span class="title">陰キャの俺、なぜか一軍ギャル3人組の罰ゲーム係に任命される</span>
       </a>
     </div>
     <div class="ranking-item">
-      <div class="rank-badge" style="background:#888888;">4</div>
       <a href="https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_730232%2F&af_id=uphorse-992&ch=api" target="_blank" rel="noopener" class="item-link">
-        <img src="https://doujin-assets.dmm.co.jp/digital/comic/d_730232/d_730232pl.jpg" alt="デリヘル呼んだら元同級生が来た〜ポリネシアンセックス6日目〜" class="thumb" loading="lazy">
+        <div class="thumb-wrap">
+          <div class="rank-badge" style="background:#888888;">4</div>
+          <img src="https://doujin-assets.dmm.co.jp/digital/comic/d_730232/d_730232pl.jpg" alt="デリヘル呼んだら元同級生が来た〜ポリネシアンセックス6日目〜" class="thumb" loading="lazy">
+        </div>
         <span class="title">デリヘル呼んだら元同級生が来た〜ポリネシアンセックス6日目〜</span>
       </a>
     </div>
     <div class="ranking-item">
-      <div class="rank-badge" style="background:#888888;">5</div>
       <a href="https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_616883%2F&af_id=uphorse-992&ch=api" target="_blank" rel="noopener" class="item-link">
-        <img src="https://doujin-assets.dmm.co.jp/digital/comic/d_616883/d_616883pl.jpg" alt="クラスのクールギャルと呼び出し×××4" class="thumb" loading="lazy">
+        <div class="thumb-wrap">
+          <div class="rank-badge" style="background:#888888;">5</div>
+          <img src="https://doujin-assets.dmm.co.jp/digital/comic/d_616883/d_616883pl.jpg" alt="クラスのクールギャルと呼び出し×××4" class="thumb" loading="lazy">
+        </div>
         <span class="title">クラスのクールギャルと呼び出し×××4</span>
       </a>
     </div>
-  <div class="footer">最終更新: 2026/03/18 00:38</div>
+  <div class="footer">最終更新: 2026/03/18 00:50</div>
 </body>
 </html>

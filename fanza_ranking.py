@@ -58,9 +58,11 @@ for i, item in enumerate(items, 1):
 
     items_html += f"""
     <div class="ranking-item">
-      <div class="rank-badge" style="background:{badge_color};">{i}</div>
       <a href="{link_url}" target="_blank" rel="noopener" class="item-link">
-        <img src="{image_url}" alt="{title}" class="thumb" loading="lazy">
+        <div class="thumb-wrap">
+          <div class="rank-badge" style="background:{badge_color};">{i}</div>
+          <img src="{image_url}" alt="{title}" class="thumb" loading="lazy">
+        </div>
         <span class="title">{title}</span>
       </a>
     </div>"""
@@ -89,19 +91,29 @@ html_output = f"""<!DOCTYPE html>
       letter-spacing: 1px;
     }}
     .ranking-item {{
-      display: flex;
-      align-items: flex-start;
       padding: 8px;
       border-bottom: 1px solid #eee;
-      position: relative;
     }}
     .ranking-item:last-child {{
       border-bottom: none;
     }}
+    .item-link {{
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }}
+    .item-link:hover .title {{
+      color: #e83e8c;
+    }}
+    .thumb-wrap {{
+      position: relative;
+    }}
     .rank-badge {{
-      flex-shrink: 0;
-      width: 24px;
-      height: 24px;
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      width: 26px;
+      height: 26px;
       border-radius: 50%;
       color: #fff;
       font-size: 13px;
@@ -109,33 +121,22 @@ html_output = f"""<!DOCTYPE html>
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-right: 6px;
-      margin-top: 2px;
-    }}
-    .item-link {{
-      display: flex;
-      align-items: flex-start;
-      text-decoration: none;
-      color: inherit;
-      flex: 1;
-      min-width: 0;
-    }}
-    .item-link:hover .title {{
-      color: #e83e8c;
+      z-index: 1;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
     }}
     .thumb {{
-      width: 80px;
+      width: 100%;
       height: auto;
-      flex-shrink: 0;
       border-radius: 4px;
+      display: block;
     }}
     .title {{
       font-size: 12px;
       line-height: 1.4;
       color: #333;
-      margin-left: 8px;
+      margin-top: 4px;
       display: -webkit-box;
-      -webkit-line-clamp: 3;
+      -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
       word-break: break-all;
