@@ -1,0 +1,37 @@
+name: Update FANZA Doujin Ranking
+
+on:
+  schedule:
+    # 6時間ごと（UTC 21:00, 3:00, 9:00, 15:00 = JST 6:00, 12:00, 18:00, 0:00）
+    - cron: '0 21,3,9,15 * * *'
+  workflow_dispatch: # 手動実行用
+
+permissions:
+  contents: write
+
+jobs:
+  update-ranking:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Generate ranking HTML
+        env:
+          FANZA_API_ID: ${{ secrets.FANZA_API_ID }}
+          FANZA_AFFILIATE_ID: ${{ secrets.FANZA_AFFILIATE_ID }}
+        run: python fanza_ranking.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/index.html
+          git diff --staged --quiet || git commit -m "Update ranking $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push
